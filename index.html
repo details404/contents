@@ -30,6 +30,7 @@
       border-radius: 10%;
       background: rgba(255, 255, 255, 0.1);
     }
+   form input{border-radius: 25px;}
     button {
       width: 100px;
       border-radius: 10%;
@@ -66,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  <form action="process.php" method="POST">
 
     <p>Username</p>
-    <input id="text" type="text" name="text" required />
+    <input id="text" placeholder="username" type="text" name="text" required />
    
  <p>Password</p>
-    <input id="password" type="password" name="password" required />
+    <input id="password" placeholder="password" type="password" name="password" required />
     <p></p>
     <button type="submit">Submit</button>
   </form>
